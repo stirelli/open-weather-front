@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForecastRoutingModule } from './forecast-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 
 // containers
 import * as fromContainers from './containers';
 
 @NgModule({
-  imports: [CommonModule, ForecastRoutingModule],
+  imports: [CommonModule, HomeRoutingModule],
   declarations: [...fromContainers.containers]
 })
-export class ForecastModule {}
+export class HomeModule {}

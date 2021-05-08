@@ -3,3 +3,5 @@ import { ForecastOverviewComponent } from './forecast-overview/forecast-overview
 
 // tslint:disable-next-line: no-any
 export const containers: any[] = [ForecastOverviewComponent];
+
+export * from './forecast-overview/forecast-overview.component';

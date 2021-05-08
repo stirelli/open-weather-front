@@ -5,8 +5,12 @@ import { AppRouteName } from './core/models/route-name.enums';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: AppRouteName.FORECAST,
+    redirectTo: AppRouteName.HOME,
     pathMatch: 'full'
+  },
+  {
+    path: AppRouteName.HOME,
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: AppRouteName.FORECAST,
