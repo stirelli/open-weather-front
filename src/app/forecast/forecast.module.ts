@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForecastComponent } from './forecast.component';
+
+// containers
+import * as fromContainers from './containers';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [ForecastComponent]
+  imports: [CommonModule],
+  declarations: [...fromContainers.containers]
 })
-export class ForecastModule { }
+export class ForecastModule {}
