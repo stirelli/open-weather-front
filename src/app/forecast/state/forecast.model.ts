@@ -1,3 +1,5 @@
+import { Options } from 'highcharts';
+
 export interface ForecastModel {
   cod: string;
   message: number;
@@ -65,4 +67,9 @@ export interface CityModel {
 export interface Coord {
   lat: number;
   lon: number;
+}
+
+export interface FormattedForecastModel {
+  temperatureOptions: Options;
+  humidityOptions: Options;
 }

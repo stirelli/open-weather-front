@@ -15,4 +15,6 @@ export class HeaderComponent implements OnInit {
   public search(term: string): void {
     this.coreFacadeService.search(term);
   }
+
+  public share() {}
 }

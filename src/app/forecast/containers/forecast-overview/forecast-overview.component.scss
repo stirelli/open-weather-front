@@ -1,0 +1,17 @@
+.forecast-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  text-align: center;
+}
+
+.chart {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.share-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}

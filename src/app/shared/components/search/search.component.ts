@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, skip, takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'll-search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -16,8 +16,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   @Input() placeholder: string = 'City';
   @Input() minLengthSearch: number = 3;
 
-  @Output() searchTermChangedEvent: EventEmitter<string> = new EventEmitter<string>();
-  @Output() searchEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onSearchTermChangedEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onSearchEvent: EventEmitter<string> = new EventEmitter<string>();
 
   private readonly DEBOUNCE_TIME: number = 500;
   private onDestroy$: Subject<void> = new Subject<void>();
@@ -38,11 +38,11 @@ export class SearchComponent implements OnInit, OnDestroy {
         distinctUntilChanged(),
         takeUntil(this.onDestroy$)
       )
-      .subscribe((term: string) => this.searchTermChangedEvent.emit(term));
+      .subscribe((term: string) => this.onSearchTermChangedEvent.emit(term));
   }
 
   public search(term: string): void {
-    this.searchEvent.emit(term);
+    this.onSearchEvent.emit(term);
   }
 
   ngOnDestroy(): void {
