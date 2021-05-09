@@ -1,0 +1,5 @@
+<form [formGroup]="form" class="search-box">
+  <input #searchInput class="search-box__input" formControlName="searchTerm" type="text" [placeholder]="placeholder"
+    maxlength="255" (keydown.enter)="search(searchInput.value)" />
+</form>
+<button class="button btn-blue" (click)="search(searchInput.value)">Search</button>

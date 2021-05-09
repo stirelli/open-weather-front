@@ -1,0 +1,22 @@
+////
+/// Functions
+////
+
+@import 'variables';
+
+$base-size: $font-size;
+/// Convert to EMs function
+/// @param {number} target - The value to be converted
+/// @param {number} context [$font-size] The base font size
+/// @return {em} value
+@function toem($target, $context: $base-size) {
+  @return $target / $context * 1em;
+}
+
+/// Convert to REMs function
+/// @param {number} target - The value to be converted
+/// @param {number} context [$font-size] - The base font size
+/// @return {rem} value
+@function torem($target, $context: $base-size) {
+  @return $target / $context * 1rem;
+}

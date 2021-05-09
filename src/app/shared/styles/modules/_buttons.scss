@@ -1,0 +1,20 @@
+.button {
+  font-family: inherit;
+  font-size: torem(16px);
+  line-height: torem(16px);
+  user-select: none;
+  border-radius: 8px;
+  height: 40px;
+  padding: 0 25px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.btn-blue {
+    $btnColor: rgb(79, 153, 255);
+    border: 1px solid $btnColor;
+    color: $btnColor;
+    background-color: white;
+  }
+}

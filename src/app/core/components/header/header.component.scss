@@ -1,0 +1,12 @@
+@import 'variables';
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: $headerBackground;
+}
+
+ll-search {
+  padding: 15px;
+}

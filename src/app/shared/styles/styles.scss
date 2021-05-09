@@ -1,0 +1,15 @@
+////
+/// Core File
+////
+
+@import 'functions';
+@import 'variables';
+@import 'base';
+@import 'modules';
+
+h1.page-title {
+  font-size: torem(28px);
+  font-weight: $font-weight-light;
+  color: $pageTitle;
+  margin: 0;
+}

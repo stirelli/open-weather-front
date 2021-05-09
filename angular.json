@@ -5,7 +5,11 @@
   "projects": {
     "open-weather-front": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,8 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/shared/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/app/shared/styles/core/", "src/app/shared/styles/helpers/", "src/app/shared/styles/modules/"]
+            },
             "scripts": []
           },
           "configurations": {
