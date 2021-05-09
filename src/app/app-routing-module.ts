@@ -15,6 +15,10 @@ const appRoutes: Routes = [
   {
     path: AppRouteName.FORECAST,
     loadChildren: () => import('./forecast/forecast.module').then(m => m.ForecastModule)
+  },
+  {
+    path: '**',
+    redirectTo: AppRouteName.HOME
   }
 ];
 

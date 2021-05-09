@@ -1,3 +1,4 @@
 export enum RootUrl {
-  Forecast = 'forecast'
+  Forecast = 'forecast',
+  Shared = 'shared'
 }

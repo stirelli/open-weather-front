@@ -8,10 +8,11 @@ import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } fro
 })
 export class ShareComponent {
   @ViewChild('shareInput', { static: true }) shareInput: ElementRef;
+  private shareUrl: string = `${window.location.origin}/forecast/shared/`;
 
   constructor() {}
 
   public setValue(value) {
-    (this.shareInput.nativeElement as HTMLInputElement).value = value;
+    (this.shareInput.nativeElement as HTMLInputElement).value = this.shareUrl + value;
   }
 }

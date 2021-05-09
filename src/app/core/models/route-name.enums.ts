@@ -4,5 +4,6 @@
 }
 
 export enum AppChildRouteName {
-  CITY = 'city'
+  CITY = 'city',
+  SHARED = 'shared'
 }

@@ -1,11 +1,20 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { ShareComponent } from '@app/shared/components/share/share.component';
 import { ForecastFacadeService } from 'app/forecast/services/forecast.facade.service';
-import { FormattedForecastModel } from 'app/forecast/state/forecast.model';
+import { FormattedForecastModel, ForecastModel } from 'app/forecast/state/forecast.model';
 import { ForecastState } from 'app/forecast/state/forecast.store';
 import * as Highcharts from 'highcharts';
 import { Observable, Subject } from 'rxjs';
-import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-forecast-overview',
@@ -14,15 +23,28 @@ import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ForecastOverviewComponent implements OnInit {
-  @ViewChild('shareElement', { static: true }) shareElement: ShareComponent;
+  @ViewChild('shareElement', { static: false }) shareElement: ShareComponent;
+  public cityForecastState$: Observable<ForecastState> = this.forecastFacadeService.getCityForecastState();
   public cityForecastData$: Observable<FormattedForecastModel> = this.forecastFacadeService.getCityForecastData();
   public cityForecastLoading$: Observable<boolean> = this.forecastFacadeService.getCityForecastLoading();
   public Highcharts: typeof Highcharts = Highcharts;
+  public forecastData: ForecastModel = null;
   private onDestroy$: Subject<void> = new Subject<void>();
 
-  constructor(private forecastFacadeService: ForecastFacadeService) {}
+  constructor(private forecastFacadeService: ForecastFacadeService, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
+    this.cityForecastState$
+      .pipe(
+        filter(state => !!state.data),
+        tap(state => {
+          this.forecastData = state.data;
+          this.changeDetectorRef.detectChanges();
+        }),
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe();
+
     this.forecastFacadeService
       .cityForecastId()
       .pipe(

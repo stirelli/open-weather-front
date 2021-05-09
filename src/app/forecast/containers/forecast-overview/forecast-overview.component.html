@@ -1,8 +1,8 @@
-<div class="share-wrapper">
-  <app-share #shareElement></app-share>
-</div>
-<div *ngIf="cityForecastData$ | async as cityForecastData">
-  <div class="forecast-wrapper">
+<div class="wrapper" *ngIf="forecastData">
+  <h1 class="page-title">
+    <!-- {{forecastData.city.name}} -->
+  </h1>
+  <div class="forecast" *ngIf="cityForecastData$ | async as cityForecastData">
     <div class="chart">
       <highcharts-chart [Highcharts]="Highcharts" [options]="cityForecastData.temperatureOptions">
       </highcharts-chart>
@@ -12,5 +12,6 @@
       </highcharts-chart>
     </div>
   </div>
+  <app-share class="share" #shareElement></app-share>
 </div>
 <app-spinner *ngIf="cityForecastLoading$ | async"></app-spinner>

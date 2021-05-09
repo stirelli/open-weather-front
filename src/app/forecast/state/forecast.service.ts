@@ -32,4 +32,22 @@ export class ForecastService {
         })
       );
   }
+
+  getSharedForecast(id: string) {
+    return this.httpService
+      .get<ForecastModel>(`${env.baseUrl}/${RootUrl.Shared}`, { params: { id } })
+      .pipe(
+        setLoading(this.forecastStore),
+        tap(forecast => {
+          this.forecastStore.update(state => ({
+            ...state,
+            ...forecast
+          }));
+        }),
+        catchError(error => {
+          this.forecastStore.setError(error);
+          return of(error);
+        })
+      );
+  }
 }

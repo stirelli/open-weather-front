@@ -12,7 +12,8 @@ $searchBoxColor: black;
   border-radius: 10px;
   background-color: transparent;
   color: $searchBoxColor;
-  width: 500px;
+  width: 550px;
+  margin: 20px;
 
   .share-box__input {
     height: 100%;
@@ -23,6 +24,7 @@ $searchBoxColor: black;
     background-color: transparent;
     outline: none;
     font-size: torem(17px);
+    text-align: center;
   }
 }
 
