@@ -2,3 +2,7 @@
   HOME = 'home',
   FORECAST = 'forecast'
 }
+
+export enum AppChildRouteName {
+  CITY = 'city'
+}

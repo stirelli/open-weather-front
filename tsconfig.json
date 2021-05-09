@@ -18,7 +18,8 @@
     ],
     "paths": {
       "@app/core/*": ["app/core/*"],
-      "@app/shared/*": ["app/shared/*"]
+      "@app/shared/*": ["app/shared/*"],
+      "@app/environments/*": ["environments/*"]
     }
   },
   "angularCompilerOptions": {

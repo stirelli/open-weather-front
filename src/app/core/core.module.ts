@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 import { SharedModule } from '@app/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule, SharedModule],
+  imports: [HttpClientModule, CommonModule, SharedModule],
   declarations: [HeaderComponent],
   exports: [HeaderComponent]
 })
