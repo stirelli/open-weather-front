@@ -41,10 +41,6 @@ export class SearchComponent implements OnInit, OnDestroy {
       .subscribe((term: string) => this.searchTermChangedEvent.emit(term));
   }
 
-  public cancel(): void {
-    this.form.controls.searchTerm.patchValue('');
-  }
-
   public search(term: string): void {
     this.searchEvent.emit(term);
   }

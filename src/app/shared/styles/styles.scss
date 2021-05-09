@@ -8,8 +8,9 @@
 @import 'modules';
 
 h1.page-title {
-  font-size: torem(28px);
-  font-weight: $font-weight-light;
+  font-size: torem(40px);
+  font-weight: $font-weight-bold;
   color: $pageTitle;
   margin: 0;
+  text-align: center;
 }
