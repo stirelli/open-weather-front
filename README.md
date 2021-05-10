@@ -1,27 +1,17 @@
 # OpenWeatherFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+App made in Angular 11, RXJS 6, Akita 6, to search for a city and show line chart of temperature and humidity forecast, for the next 5 days, from https://openweathermap.org/forecast5
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Deploy
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The app is configured to be deployed in heroku, using express and serving the build folder from the server.js, by only pushing the changes using the heroku CLI.
+This app uses the backend created in the other repo named: open-weather-back
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Sample Routes
+http://localhost:4200/home
+http://localhost:4200/forecast/city/miami
+http://localhost:4200/forecast/shared/6098b70f121f0c0015b6d81d
