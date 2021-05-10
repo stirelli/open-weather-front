@@ -1,6 +1,6 @@
 <div class="wrapper" *ngIf="forecastData">
   <h1 class="page-title">
-    <!-- {{forecastData.city.name}} -->
+    {{forecastData.city.name}}
   </h1>
   <div class="forecast" *ngIf="cityForecastData$ | async as cityForecastData">
     <div class="chart">
