@@ -1,20 +1,11 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ShareComponent } from '@app/shared/components/share/share.component';
 import { ForecastFacadeService } from 'app/forecast/services/forecast.facade.service';
 import { FormattedForecastModel, ForecastModel } from 'app/forecast/state/forecast.model';
 import { ForecastState } from 'app/forecast/state/forecast.store';
 import * as Highcharts from 'highcharts';
 import { Observable, Subject } from 'rxjs';
-import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
+import { filter, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-forecast-overview',

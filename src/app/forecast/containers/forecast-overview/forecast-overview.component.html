@@ -4,11 +4,13 @@
   </h1>
   <div class="forecast" *ngIf="cityForecastData$ | async as cityForecastData">
     <div class="chart">
-      <highcharts-chart [Highcharts]="Highcharts" [options]="cityForecastData.temperatureOptions">
+      <highcharts-chart [Highcharts]="Highcharts" [options]="cityForecastData.temperatureOptions"
+        [runOutsideAngular]="true">
       </highcharts-chart>
     </div>
     <div class="chart">
-      <highcharts-chart [Highcharts]="Highcharts" [options]="cityForecastData.humidityOptions">
+      <highcharts-chart [Highcharts]="Highcharts" [options]="cityForecastData.humidityOptions"
+        [runOutsideAngular]="true">
       </highcharts-chart>
     </div>
   </div>
